@@ -11,16 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorPrimary"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:paddingLeft="20dp">
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Dashboard"
             android:textColor="#ffff"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginRight="280dp"/>
+            android:gravity="center" />
     </LinearLayout>
 
     <FrameLayout

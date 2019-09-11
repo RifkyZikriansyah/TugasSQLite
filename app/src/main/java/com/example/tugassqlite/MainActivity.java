@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
-    private int loading = 2000;
-    //2000 = 2dtk
+    private int loading = 1500;
+    //1500 = 1.5dtk
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -43,7 +43,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.btnAwal2:
-                Intent btnAwal2 = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.w3schools.com"));
+                Intent btnAwal2 = new Intent(Main2Activity.this, detailData.class);
                 startActivity(btnAwal2);
                 break;
 

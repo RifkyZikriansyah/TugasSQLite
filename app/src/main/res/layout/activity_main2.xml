@@ -7,6 +7,22 @@
     android:background="#FFFCEF"
     tools:context=".Main2Activity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Dashboard"
+            android:textColor="#ffff"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginRight="280dp"/>
+    </LinearLayout>
+
     <FrameLayout
         android:id="@+id/logo_awal"
         android:layout_marginBottom="300dp"

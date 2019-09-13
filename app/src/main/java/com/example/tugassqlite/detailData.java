@@ -22,7 +22,6 @@ public class detailData extends AppCompatActivity  {
         TL = findViewById(R.id.TL);
         JK = findViewById(R.id.JK);
         alamat = findViewById(R.id.alamat);
-        simpan = findViewById(R.id.simpan);
         DataBaseHelper db = new DataBaseHelper(context);
         PersonBean currentPerson = new PersonBean();
         nomor.setText(currentPerson.getNO());

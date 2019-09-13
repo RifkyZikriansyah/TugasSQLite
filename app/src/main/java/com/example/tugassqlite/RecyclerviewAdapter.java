@@ -38,34 +38,18 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, final int position) {
         final PersonBean currentPerson=listPersonInfo.get(position);
-        holder.ctxtName.setText(currentPerson.getName());
-        holder.ctxtAge.setText(currentPerson.getAge()+"");
-        holder.imgEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onUserClick(currentPerson,"Edit");
-            }
-        });
-        holder.imgDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onUserClick(currentPerson,"Delete");
-            }
-        });
+        holder.txtName.setText(currentPerson.getNAME());
+
     }
     @Override
     public int getItemCount() {
         return listPersonInfo.size();
     }
     public class UserViewHolder extends RecyclerView.ViewHolder {
-        TextView ctxtAge,ctxtName;
-        ImageView imgDelete,imgEdit;
+        TextView txtName;
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
-            ctxtAge=itemView.findViewById(R.id.ctxtAge);
-            ctxtName=itemView.findViewById(R.id.ctxtName);
-            imgDelete=itemView.findViewById(R.id.imgdelete);
-            imgEdit=itemView.findViewById(R.id.imgedit);
+            txtName=itemView.findViewById(R.id.txtName);
         }
     }
 }

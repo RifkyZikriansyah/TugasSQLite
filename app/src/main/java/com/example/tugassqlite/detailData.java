@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-public class detailData extends AppCompatActivity implements View.OnClickListener {
+public class detailData extends AppCompatActivity  {
     EditText nomor,nama,TL,JK,alamat;
     LinearLayout simpan;
     Context context;
@@ -23,20 +23,16 @@ public class detailData extends AppCompatActivity implements View.OnClickListene
         JK = findViewById(R.id.JK);
         alamat = findViewById(R.id.alamat);
         simpan = findViewById(R.id.simpan);
+        DataBaseHelper db = new DataBaseHelper(context);
+        PersonBean currentPerson = new PersonBean();
+        nomor.setText(currentPerson.getNO());
+        nama.setText(currentPerson.getNAME());
+        TL.setText(currentPerson.getTL());
+        JK.setText(currentPerson.getJK());
+        alamat.setText(currentPerson.getALAMAT());
 
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.simpan){
-            DataBaseHelper db = new DataBaseHelper(context);
-            PersonBean currentPerson = new PersonBean();
-            currentPerson.setNO(nomor.getText().toString());
-            currentPerson.setNAME(nama.getText().toString());
-            currentPerson.setTL(TL.getText().toString());
-            currentPerson.setJK(JK.getText().toString());
-            currentPerson.setALAMAT(alamat.getText().toString());
-            db.insert(currentPerson);
-        }
-    }
+
+
 }

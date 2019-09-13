@@ -29,7 +29,7 @@ public class detailData extends AppCompatActivity  {
         TL.setText(currentPerson.getTL());
         JK.setText(currentPerson.getJK());
         alamat.setText(currentPerson.getALAMAT());
-
+        db.selectUserData();
     }
 
 

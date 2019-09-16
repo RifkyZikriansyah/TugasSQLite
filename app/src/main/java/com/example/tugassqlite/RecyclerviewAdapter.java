@@ -26,7 +26,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
     }
 
     public interface OnUserClickListener{
-        void onUserClick(PersonBean currentPerson, String action);
+        void onUserClick(PersonBean currentPerson);
     }
     @NonNull
     @Override

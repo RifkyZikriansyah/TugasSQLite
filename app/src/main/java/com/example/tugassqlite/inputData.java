@@ -24,6 +24,7 @@ public class inputData extends AppCompatActivity implements View.OnClickListener
         JK = findViewById(R.id.JK);
         alamat = findViewById(R.id.alamat);
         simpan = findViewById(R.id.simpan);
+        simpan.setOnClickListener(this);
     }
     @Override
     public void onClick(View v) {

@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 
 import java.util.List;
 
-public class Main3Activity extends AppCompatActivity  {
+public class Main3Activity extends AppCompatActivity implements RecyclerviewAdapter.OnUserClickListener  {
     LinearLayout opsi;
     RecyclerView recyclerview;
     List<PersonBean> listPersonInfo;
@@ -26,11 +26,13 @@ public class Main3Activity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
         opsi = findViewById(R.id.opsi);
-        recyclerview = (RecyclerView) findViewById(R.id.recyclerview);
+        recyclerview = findViewById(R.id.recyclerview);
         opsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                showDialog();
+                Intent Main2Activity = new Intent(Main3Activity.this, inputData.class);
+                startActivity(Main2Activity);
+                finish();
             }
         });
         setupRecyclerView();
@@ -73,10 +75,14 @@ public class Main3Activity extends AppCompatActivity  {
         listPersonInfo=db.selectUserData();
         RecyclerviewAdapter adapter=new
                 RecyclerviewAdapter(this, listPersonInfo,this);
+        recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
 
 
-
+    @Override
+    public void onUserClick(PersonBean currentPerson) {
+        showDialog();
+    }
 }

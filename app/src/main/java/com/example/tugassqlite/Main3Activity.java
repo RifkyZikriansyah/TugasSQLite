@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,9 +13,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-public class Main3Activity extends AppCompatActivity {
+import java.util.List;
+
+public class Main3Activity extends AppCompatActivity  {
     LinearLayout opsi;
     RecyclerView recyclerview;
+    List<PersonBean> listPersonInfo;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,7 @@ public class Main3Activity extends AppCompatActivity {
                 showDialog();
             }
         });
+        setupRecyclerView();
     }
     private void showDialog() {
         final String[] menu = {"Lihat data","Update data","hapus data"};
@@ -43,7 +49,7 @@ public class Main3Activity extends AppCompatActivity {
                         break;
 
                     case 1:
-                        Intent btnUpdate = new Intent(Intent.ACTION_VIEW, Uri.parse("https://drive.google.com"));
+                        Intent btnUpdate = new Intent(Main3Activity.this, updateData.class);
                         startActivity(btnUpdate);
                         break;
 
@@ -61,4 +67,16 @@ public class Main3Activity extends AppCompatActivity {
         alertDialogBuilder.show();
 
     }
+
+    private void setupRecyclerView() {
+        DataBaseHelper db=new DataBaseHelper(this);
+        listPersonInfo=db.selectUserData();
+        RecyclerviewAdapter adapter=new
+                RecyclerviewAdapter(this, listPersonInfo,this);
+        recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+
+
 }

@@ -1,4 +1,4 @@
-package com.example.latihansqlite;
+package com.example.tugassqlite;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -18,17 +18,19 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
     OnUserClickListener listener;
     List<PersonBean> listPersonInfo;
 
-    public RecyclerviewAdapter(Context context, List<PersonBean> listPersonInfo,OnUserClickListener listener) {
+    public RecyclerviewAdapter(Context context, List<PersonBean> listPersonInfo, OnUserClickListener listener) {
         this.context=context;
         this.listPersonInfo=listPersonInfo;
-        this.listener=listener;
+        this.listener = listener;
+
     }
+
     public interface OnUserClickListener{
         void onUserClick(PersonBean currentPerson, String action);
     }
     @NonNull
     @Override
-    public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    public RecyclerviewAdapter.UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
         View view=
                 LayoutInflater.from(parent.getContext()).inflate(R.layout.user_row_item,parent,false);
@@ -36,10 +38,16 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
         return userViewHolder;
     }
     @Override
-    public void onBindViewHolder(@NonNull UserViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull RecyclerviewAdapter.  UserViewHolder holder, int position) {
         final PersonBean currentPerson=listPersonInfo.get(position);
         holder.txtName.setText(currentPerson.getNAME());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onUserClick(currentPerson);
+            }
+        });
     }
     @Override
     public int getItemCount() {

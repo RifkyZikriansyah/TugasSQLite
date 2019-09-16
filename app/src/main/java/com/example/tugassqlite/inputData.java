@@ -3,6 +3,7 @@ package com.example.tugassqlite;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -35,6 +36,10 @@ public class inputData extends AppCompatActivity implements View.OnClickListener
             currentPerson.setJK(JK.getText().toString());
             currentPerson.setALAMAT(alamat.getText().toString());
             db.insert(currentPerson);
+
+
+            Intent btnAwal1 = new Intent(inputData.this, Main3Activity.class);
+            startActivity(btnAwal1);
         }
     }
 }

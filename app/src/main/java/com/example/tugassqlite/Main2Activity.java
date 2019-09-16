@@ -48,7 +48,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.btnAwal3:
-                Intent btnAwal3 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://drive.google.com"));
+                Intent btnAwal3 = new Intent(Main2Activity.this, Main4Activity.class);
                 startActivity(btnAwal3);
                 break;
 
